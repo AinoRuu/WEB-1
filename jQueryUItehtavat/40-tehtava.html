@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekisteröityminen</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <style>
+        #main-content {
+            display: none;
+            margin-top: 20px;
+        }
+        #error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        #user-info {
+            display: none;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .dialog-label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .extra-fields {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <button id="register-button">Rekisteröidy</button>
+    
+    <div id="registration-dialog" title="Rekisteröityminen" style="display: none;">
+        <label class="dialog-label" for="name">Nimi:</label>
+        <input type="text" id="name" placeholder="Anna nimesi">
+        
+        <label class="dialog-label" for="username">Tunnus:</label>
+        <input type="text" id="username" placeholder="Anna tunnus">
+
+        <div class="extra-fields">
+            <input type="checkbox" id="extra-info">
+            <label for="extra-info">Lisätietoja</label>
+
+            <div id="extra-fields-content">
+                <label class="dialog-label" for="school">Oppilaitos:</label>
+                <input type="text" id="school" disabled placeholder="Anna oppilaitoksen nimi">
+
+                <label class="dialog-label" for="age">Ikä:</label>
+                <input type="text" id="age" disabled>
+            </div>
+        </div>
+
+        <p id="error-message"></p>
+    </div>
+
+    <p id="user-info"></p>
+
+    <div id="main-content">
+        <h1>Tervetuloa!</h1>
+        <p>Nyt voit käyttää sivua.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+            // Alusta spinner komponentti
+            $("#age").spinner({
+                min: 1,
+                max: 120,
+                step: 1,
+                disabled: true // Aluksi disabloitu
+            });
+
+            // Toggle-lisäkenttien tilat
+            $("#extra-info").change(function () {
+                const isChecked = $(this).is(":checked");
+                $("#school").prop("disabled", !isChecked);
+                $("#age").spinner("option", "disabled", !isChecked);
+            });
+
+            // Näytetään dialogi
+            $("#register-button").click(function () {
+                // Nollataan kenttien arvot
+                $("#name").val("");
+                $("#username").val("");
+                $("#extra-info").prop("checked", false);
+                $("#school").prop("disabled", true).val("");
+                $("#age").spinner("option", "disabled", true).val("");
+
+                // Näytetään dialogi
+                $("#registration-dialog").dialog({
+                    modal: true,
+                    buttons: {
+                        "Save": function () {
+                            const name = $("#name").val().trim();
+                            const username = $("#username").val().trim();
+                            const extraInfoEnabled = $("#extra-info").is(":checked");
+                            const school = $("#school").val().trim();
+                            const age = $("#age").val();
+
+                            if (name.length >= 5 && username.length >= 5) {
+                                // Näytetään rekisteröityneen tiedot
+                                let userInfo = `Rekisteröitynyt käyttäjä: ${name} (${username})`;
+
+                                if (extraInfoEnabled) {
+                                    userInfo += `<br>Oppilaitos: ${school || "Ei annettu"}<br>Ikä: ${age || "Ei annettu"}`;
+                                }
+
+                                $("#user-info").html(userInfo).show();
+                                $("#error-message").text("");
+                                $(this).dialog("close");
+                                $("#main-content").show();
+                                $("#register-button").text("Muokkaa tietoja");
+                            } else {
+                                // Näytä virheviesti
+                                $("#error-message").text("Virhe: Molempien kenttien tulee sisältää vähintään 5 merkkiä.");
+                            }
+                        },
+                        "Peruuta": function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+            });
+
+            // Estetään pääsisällön käyttö ilman rekisteröitymistä
+            $("#main-content").hide();
+        });
+    </script>
+</body>
+</html>

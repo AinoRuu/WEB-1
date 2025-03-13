@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syntymäpäivän valinta</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <style>
+        p {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Valitse syntymätietosi</h1>
+    <label for="datepicker">Syntymäpäivä:</label>
+    <input type="text" id="datepicker" placeholder="Valitse päivämäärä">
+    <p id="selected-date">
+        Pvm:ää ei ole valittu
+    </p>
+
+    <label for="birthplace">Syntymäpaikka:</label>
+    <input type="text" id="birthplace" placeholder="Kirjoita syntymäpaikkasi">
+    <p id="selected-place">Paikkaa ei ole valittu</p>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+            $.datepicker.setDefaults($.datepicker.regional["fi"] = {
+                closeText: "Sulje",
+                prevText: "Edellinen",
+                nextText: "Seuraava",
+                currentText: "Tänään",
+                monthNames: ["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu",
+                    "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"],
+                monthNamesShort: ["Tammi", "Helmi", "Maalis", "Huhti", "Touko", "Kesä",
+                    "Heinä", "Elo", "Syys", "Loka", "Marras", "Joulu"],
+                dayNames: ["Sunnuntai", "Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai"],
+                dayNamesShort: ["Su", "Ma", "Ti", "Ke", "To", "Pe", "La"],
+                dayNamesMin: ["Su", "Ma", "Ti", "Ke", "To", "Pe", "La"],
+                weekHeader: "Vk",
+                dateFormat: "dd.mm.yy",
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ""
+            });
+
+            $("#datepicker").datepicker({
+                minDate: new Date(1996, 0, 1),
+                maxDate: new Date(2015, 12, 31),
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1996:2015",
+                onSelect: function (dateText) {
+                    $("#selected-date").text("Valittu pvm: " + dateText);
+                }
+
+            });
+
+
+
+            const kunnat = [
+                "Helsinki", "Espoo", "Ylivieska", "Tampere", "Oulu", "Turku", "Jyväskylä",
+                "Kuopio", "Pyhäjärvi", "Kouvola", "Haapajärvi", "Joensuu", "Lappeenranta", "Posio",
+                "Rovaniemi", "Seinäjoki", "Mikkeli", "Inari", "Varkaus", "Kokkola"
+            ];
+
+            $("#birthplace").autocomplete({
+                source: kunnat,
+                select: function (event, ui) {
+                    $("#selected-place").text("Valittu paikka: " + ui.item.value);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

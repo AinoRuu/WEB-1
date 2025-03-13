@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picking an article</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <style>
+        #main-content {
+            display: none;
+            margin-top: 20px;
+        }
+        #error-message {
+            color: rgb(87, 23, 23);
+            margin-top: 10px;
+        }
+        #user-info {
+            display: none;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .dialog-label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="register-button">Rekisteröidy</button>
+    
+    <div id="registration-dialog" title="Rekisteröityminen" style="display: none;">
+        <label class="dialog-label" for="name">Nimi:</label>
+        <input type="text" id="name" placeholder="Anna nimesi">
+        
+        <label class="dialog-label" for="username">Tunnus:</label>
+        <input type="text" id="username" placeholder="Anna tunnus">
+        
+        <p id="error-message"></p>
+    </div>
+
+    <p id="user-info"></p>
+
+    <div id="main-content">
+        <h1>Tervetuloa!</h1>
+        <p>Sivu on nyt käytettävissä.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+            let isRegistered = false;
+
+           
+            $("#register-button").click(function () {
+                $("#registration-dialog").dialog({
+                    modal: true,
+                    buttons: {
+                        "Save": function () {
+                            const name = $("#name").val().trim();
+                            const username = $("#username").val().trim();
+
+                            if (name.length >= 5 && username.length >= 5) {
+                                isRegistered = true;
+                                $("#error-message").text("");
+                                $("#user-info").text(`Rekisteröitynyt käyttäjä: ${name} (${username})`).show();
+                                $(this).dialog("close");
+                                $("#main-content").show();
+                                $("#register-button").hide();
+                            } else {
+                                $("#error-message").text("Virhe: Molempien kenttien tulee sisältää vähintään 5 merkkiä.");
+                            }
+                        },
+                        "Peruuta": function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+            });
+
+            
+            $("#main-content").hide();
+        });
+    </script>
+</body>
+
+</html>

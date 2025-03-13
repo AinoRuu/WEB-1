@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo-list</title>
+    <link rel="stylesheet" href="./25-28-tehtavat.css">
+    <script src="./25-28-tehtavat.js" defer></script>
+</head>
+
+<body>
+    <section class="todo" >
+        <h2>To-Do list</h2>
+        <div class="input">
+            <input type="text" placeholder="task"class="input-field" id="inputTask">
+            <input type="number" placeholder="priority (1-5)" class="input-field" id="inputPriority" max="5" min="1" oninput="this.value = this.value > 5 ? 5 : this.value < 1 ? 1 : this.value;">
+            <input type="date" placeholder="deadline"class="input-field" id="inputDeadline">
+            <button class="btn">Confirm</button>
+        </div>
+        <p>You can sort the list by clicking on the attribute you want to sort by. </p>
+        <table class="list">
+                <tr>
+                    <th onclick="sortTable(0)" >number</th>
+                    <th onclick="sortTable(1)" >task</th>
+                    <th onclick="sortTable(2)" >priority (1-5)</th>
+                    <th onclick="sortTable(3)" >deadline</th>
+                    <th onclick="sortTable()" >completion</th>
+                    <th>action</th>
+                </tr>
+
+        </table>
+    </section>
+</body>
+
+</html>

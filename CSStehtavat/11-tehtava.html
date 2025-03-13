@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+</html>
+
+<head>
+    <style>
+        .flex-container-column {
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(250, 250, 250);
+            
+        }
+
+        .flex-container-column > div {
+            background-color: blueviolet;
+            padding: 5px;
+            text-align: center;
+            margin-right: 5px;
+            margin-bottom: 5px;
+
+        }
+
+        .flex-container-column >div:nth-of-type(2){
+            background-color: blueviolet;
+            padding: 5px;
+            text-align: start;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .flex-container-column >:last-child{
+            background-color: blueviolet;
+            padding: 5px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: smaller;
+        }
+
+        .flex-container-row {
+            display: flex;
+            background-color: rgb(250, 250, 250);
+            
+        }
+
+        .flex-container-row > div {
+            background-color: blueviolet;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            padding: 5px; 
+            width: 70%;
+        }
+
+        .flex-container-row > div:last-child {
+            width: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="flex-container-column">
+        <div>
+            <h1 >Tervetuloa FlexBox Verkkosivulle</h1>
+        </div>
+
+        <div>
+            <h2>Sivun sisältö</h2>
+            <p>Tässäpä on nyt sisältöä</p>
+        </div>
+
+        <section class="flex-container-row">
+            <div>
+                <h3>Lisää Sisältöä</h3>
+                <p>Jeppis jee paljon kaikkee kivaa!</p>
+            </div>
+
+            <div>
+                <h4>Vielä Enemmän Sisältöä</h4>
+                <p>Ja vielä enemmän!!</p>
+            </div>
+        </section>
+
+        <div >
+            <p>tääl ois sit copyright-tiedot</p>
+        </div>
+    </section>
+</body>
+
+</html>

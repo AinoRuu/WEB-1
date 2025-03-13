@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <style>
+        .header {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .grid-item1 {
+            grid-area: header;
+            text-align: center;
+            background-color: aquamarine;
+            
+        }
+
+        .grid-item2_1 {
+            grid-area: left;
+            text-align: start;
+            background-color: rgb(138, 138, 192);
+            padding: 5px;
+
+            margin-right: 5px;
+        }
+        .grid-item2_2 {
+            grid-area: middle;
+            text-align: start;
+            background-color: rgb(138, 138, 192);
+            padding: 5px;
+
+            margin-right: 5px;
+        }
+        .grid-item2_3 {
+            grid-area: right;
+            text-align: start;
+            background-color: rgb(138, 138, 192);
+            padding: 5px;
+        }
+
+        .grid-item3 {
+            grid-area: footer;
+            text-align: center;
+            background-color: aquamarine;
+            font-size: small;
+        }
+
+        .grid-container {
+            display: grid;
+            gap: 10px;
+            grid-template-areas: 'header header header'
+            'left middle right'
+            'footer footer footer';
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item1">
+            <h1>Tervetuloa GRIDi Verkkosivulle</h1>
+        </div>
+        <div class="grid-item2_1">
+            <h2 class="header">1. Sivun sisältö</h2>
+            <p>Tässäpä on nyt sisältöä</p>
+        </div>
+
+        <div class="grid-item2_2">
+            <h3 class="header">2. Lisää Sisältöä</h3>
+            <p>Jeppis jee paljon kaikkee kivaa!</p>
+        </div>
+
+        <div class="grid-item2_3">
+            <h4 class="header">3. Vielä Enemmän Sisältöä</h4>
+            <p>Ja vielä enemmän!!</p>
+        </div>
+        <div class="grid-item3">
+            <p>tääl ois sit copyright-tiedot</p>
+        </div>
+    </div>
+</body>
+
+</html>

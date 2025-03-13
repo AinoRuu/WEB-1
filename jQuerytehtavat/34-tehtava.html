@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picking an article</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        article {
+            display: none;
+            background-color: #f0f0f0;
+            padding: 15px;
+            border: 1px solid blue;
+            
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Links and articles</h1>
+    <a href="#" class="toggle-link" data-target="#article1">Show article no. 1</a>
+    <a href="#" class="toggle-link" data-target="#article2">Show article no. 2</a>
+    <a href="#" class="toggle-link" data-target="#article3">Show article no. 3</a>
+
+    <article id="article1">
+        <h2>Article no. 1</h2>
+        <p>This is the first article. It is filled with some interestening info that you are sure to like!</p>
+
+    </article>
+
+    <article id="article2">
+        <h3>Article no. 2</h3>
+        <p>This is the second article. It is even more intriguing than the first one!</p>
+
+    </article>
+    <article id="article3">
+        <h3>Article no. 3</h3>
+        <p>This is the third article. There is a reason why it is the last one</p>
+
+    </article>
+
+    <script>
+        $(document).ready(function () {
+            $('.toggle-link').click(function (event) {
+                event.preventDefault();
+                const target = $(this).data("target")
+
+                $("article").stop(true, true).fadeOut(500);
+
+                $(target).stop(true, true).fadeIn(2000, function () {
+
+                    setTimeout(() => {
+                        $(target).fadeOut(500);
+                    }, 3000
+                    );
+                })
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <h1>Tietolomake</h1>
+    <form action="https://garagecoders.azurewebsites.net/process" method="post">
+        <label for="name">Koko nimi:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="yearOfStudy">Vuosikurssi:</label>
+        <input type="password" id="yearOfStudy" name="yearOfStudy" required><br><br>
+
+        <label for="courseName">Kurssin nimi:</label>
+        <select id="courseName" name="courseName">
+            <option value="tyhja">   </option>
+            <option value="JTK">JTK</option>
+            <option value="WEB1">WEB1</option>
+            <option value="MA3">MA3</option>
+            <option value="TRA">TRA</option>
+            <option value="FY2">FY2</option>
+        </select><br><br>
+
+        <label for="courseType">Kurssin tyyppi:</label>
+        <select id="courseType" name="courseType">
+            <option value="tyhja">   </option>
+            <option value="perusopinnot">perusopinnot</option>
+            <option value="syventavat">syventavat</option>
+            <option value="valinnaiset">valinnaiset</option>
+        </select><br><br>
+
+        <input type="radio" id="mies" name="gender" value="Mies">
+        <label for="mies">Mies</label>
+        <input type="radio" id="nainen" name="gender" value="Nainen">
+        <label for="nainen">Nainen</label><br><br>
+
+        <input type="checkbox" id="hobby_1" name="hobby_1" value="Jalkapallo" >
+        <label for="hobby_1">Jalkapallo</label><br>
+        <input type="checkbox" id="hobby_2" name="hobby_2" value="Sulkapallo">
+        <label for="hobby_2">Sulkapallo</label><br>
+        <input type="checkbox" id="hobby_3" name="hobby_3" value="Pesapallo" checked>
+        <label for="hobby_3">Pesapallo</label><br>
+        <input type="checkbox" id="hobby_4" name="hobby_4" value="Jaapallo">
+        <label for="hobby_3">Jaapallo</label><br>
+        <br>
+
+        <input type="submit" value="Laheta">
+        <input type="reset" value="Tyhjenna">
+
+    </form>
+</body>
+</html>

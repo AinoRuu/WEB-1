@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <style>
+        .flex-container {
+            display: flex;
+            background-color: rgb(5, 73, 50);
+            align-items: center;
+            justify-content: center;
+            color: rgb(255, 255, 255);
+            
+        }
+
+        .flex-container>div {
+            width: 100px;
+            margin: 10px;
+            
+        }
+        
+        .textbox{
+            border: 1px solid grey;
+            padding: 15px 30px;
+            border-radius: 4px;
+        }
+
+        .button{
+             background-color: brown;
+             padding: 15px 20px;
+            border: none;
+            font-size: 15px;
+            color: azure;
+            font-weight: bolder;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="flex-container">
+        <div>
+            <h1>Name:  </h1>
+        </div>
+        <div> 
+            <input type="text" class="textbox">
+        </div>
+        <div style="margin-left: auto;" >
+            <input type="submit" class="button" >
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .flex-container-column {
+            display: flex;
+            flex-direction: column;
+            font-size: 20px
+        }
+
+        .flex-container-column>div {
+            background-color: blueviolet;
+            padding: 5px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            text-align:center;
+            
+        }
+
+        .flex-container-row {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .flex-container-row>div {
+            background-color: rgb(187, 155, 216);
+            border: 1px solid gray;
+            width: 100%;
+            padding: 5px;
+        }
+        .flex-container-row>div:last-child {
+            background-color: rgb(160, 226, 247);
+            border: 1px solid gray;
+            width: 100%;
+            padding: 5px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <section class="flex-container-column">
+        <div>
+            <h1>Tervetuloa mediasivulle</h1>
+            <nav>
+                [<a href="#TV">TV</a>]
+                [<a href="#Verkkolehdet">Verkkolehdet</a>]
+                [<a href="#Paikallislehdet">Paikallislehdet</a>]
+                [<a href="#Sosiaalinenmedia">Sosiaalinen media</a>]
+            </nav>
+        </div>
+
+        <section class="flex-container-row">
+            <div>
+                <div class="flex-container-column" >
+                    <h1 id="#TV">TV</h1>
+                    <p><a href="https://yle.fi/" target="_blank">YLE</a></p>
+                    <p>YLE on suomalainen yleisradioyhtiö, joka toimii...</p>
+                    <p><a href="https://www.mtvuutiset.fi/" target="_blank">MTV3</a></p>
+                    <p>MTV3 on suomalainen televisio- ja radioyhtiö, joka toim.....</p>
+                </div>
+            </div>
+            <div>
+                <div class="flex-container-column" >
+                    <h1 id="#Verkkolehdet">Verkkolehdet</h1>
+                    <p><a href="https://www.hs.fi/" target="_blank">Helsingin Sanomat</a></p>
+                    <p>Helsingin Sanomat on suomalainen sanomalehti, joka ilmest...</p>
+                    <p><a href="https://www.iltalehti.fi/" target="_blank">Ilta-Sanomat</a></p>
+                    <p>Iltalehti on suomalainen sanomalehti, joka ilmest....</p>
+                </div>
+            </div>
+        </section>
+        <section class="flex-container-row">
+            <div>
+                <div class="flex-container-column" >
+                    <h1 id="#Paikallislehdet">Paikallislehdet</h1>
+                    <p><a href="https://www.karjalainen.fi/" target="_blank">Karjalainen</a></p>
+                    <p>Karjalainen on suomalainen sanomalehti, joka ilmestyy Kar....</p>
+                    <p><a href="https://pyhajarvensanomat.fi/" target="_blank">Pyhäjärven sanomat</a></p>
+                    <p>Pyhäjärven sanomat on suomalainen sanomalehti, joka ilmestyy Pyhäjärvellä....</p>
+                </div>
+            </div>
+            <div>
+                <div class="flex-container-column">
+                    <h1 id="#Sosiaalinenmedia">Sosiaalinen media</h1>
+                    <p><a href="https://www.facebook.com/" target="_blank">Facebook</a></p>
+                    <p>Facebook on yhdysvaltalainen sosiaalisen median palvelu, joka....</p>
+                    <p><a href="https://www.instagram.com/" target="_blank">Instagram</a></p>
+                    <p>Instagram on sosiaalisen median palvelu, jossa voi jakaa kuvia ja videoita seuraajilleen...</p>
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+
+</html>
